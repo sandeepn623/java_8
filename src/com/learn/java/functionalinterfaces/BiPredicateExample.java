@@ -5,18 +5,22 @@ import com.learn.java.data.StudentDataBase;
 
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class PredicateAndConsumerExample {
+public class BiPredicateExample {
+    Predicate<Student> studentGradePredicate = (student) -> student.getGradeLevel() >=3;
 
-    private Predicate<Student> studentGradePredicate = student -> student.getGradeLevel() >=3;
-    private Predicate<Student> studentGpaPredicate = student -> student.getGpa() >=3.9;
+    Predicate<Student> studentGpaPredicate = (student) -> student.getGpa() >=3.9;
+
+    BiPredicate<Integer, Double> biPredicate = (gradeLevel, gpa) -> gradeLevel>=3 && gpa >=3.9;
+
 
     private BiConsumer<String, List<String>> nameAndActivitiesBiConsumer
             = (name, activities) -> System.out.println("name: " + name + " activities: " + activities);
     private Consumer<Student> combinedStudentGpaAndGradeConsumer = student -> {
-        if(studentGpaPredicate.and(studentGradePredicate).test(student)) {
+        if(biPredicate.test(student.getGradeLevel(), student.getGpa())) {
             nameAndActivitiesBiConsumer.accept(student.getName(), student.getActivities());
         }
     };

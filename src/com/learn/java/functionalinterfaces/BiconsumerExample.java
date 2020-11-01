@@ -20,8 +20,8 @@ public class BiconsumerExample {
     }
 
     public void nameAndActivities() {
-        BiConsumer<String, List<String>> biconsumer = (name, activities) -> System.out.println(name + " : " + activities);
+        BiConsumer<String, List<String>> biConsumer = (name, activities) -> System.out.println(name + " : " + activities);
         List<Student> students = StudentDataBase.getAllStudents();
-        students.forEach(student -> biconsumer.accept(student.getName(), student.getActivities()));
+        students.forEach(student -> biConsumer.accept(student.getName(), student.getActivities()));
     }
 }
