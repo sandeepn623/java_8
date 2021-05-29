@@ -7,9 +7,7 @@ import java.util.function.Supplier;
 
 public class StudentDataBase {
 
-    public static Supplier<Student> studentSupplier = () -> {
-        return  new Student("Adam",2,4.0,"male", Arrays.asList("swimming", "basketball","volleyball"));
-    };
+    public static Supplier<Student> studentSupplier = () -> new Student("Adam",2,4.0,"male", Arrays.asList("swimming", "basketball","volleyball"));
 
     public static Optional<Student> getOptionalStudent(){
 
@@ -36,7 +34,7 @@ public class StudentDataBase {
          * 3rd grade students
          */
         Student student3 = new Student("Emily",3,4.0,"female", 12,Arrays.asList("swimming", "gymnastics","aerobics"));
-        Student student4 = new Student("Dave",3,4.0,"male", 15,Arrays.asList("swimming", "gymnastics","soccer"));
+        Student student4 = new Student("Dave",3,3.9,"male", 15,Arrays.asList("swimming", "gymnastics","soccer"));
         /**
          * 4th grade students
          */
